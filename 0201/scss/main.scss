@@ -1,0 +1,125 @@
+$bg_color: #b2b2b2;
+$text_color: #fff;
+
+@mixin animation($name) {
+  animation: $name 1s ease-in-out infinite alternate-reverse;
+}
+body {
+  background-color: $bg_color;
+  .wrapper {
+    margin: auto;
+    text-align: center;
+    vertical-align: 50%;
+    h1 {
+      color: $text_color;
+      font-weight: 400;
+      span[class^="dot_"] {
+        opacity: 0;
+      }
+      span.dot_one {
+        @include animation(dot_one);
+      }
+      span.dot_two {
+        @include animation(dot_two);
+      }
+      span.dot_three {
+        @include animation(dot_three);
+      }
+      @keyframes dot_one {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 1;
+        }
+        75% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes dot_two {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        75% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes dot_three {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0;
+        }
+        75% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+
+    .bouncing_ball {
+      width: 8rem;
+      height: 8rem;
+      position: relative;
+      .ball {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        border-radius: 50%;
+        background-color: #fff;
+        animation: bounce 1s ease-in-out infinite alternate;
+      }
+
+      @keyframes bounce {
+        0% {
+          top: 0;
+          width: 2rem;
+          height: 2rem;
+          animation-timing-function: ease-in;
+        }
+        35% {
+          top: 80%;
+          width: 2rem;
+          height: 2.2rem;
+          animation-timing-function: ease-out;
+        }
+        50% {
+          top: 100%;
+          height: 2rem;
+          width: 2rem;
+        }
+        90% {
+          top: 0;
+          width: 2rem;
+          height: 2rem;
+        }
+        100% {
+          top: 0;
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+}
