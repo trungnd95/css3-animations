@@ -8,7 +8,9 @@
   font-size: 14px;
 }
 
-button.btn_left_to_right {
+button.btn_left_to_right,
+button.btn_grow_fr_inside,
+button.btn_skew {
   /* Typography */
   background: #3498db;
   color: #fff;
@@ -26,8 +28,11 @@ button.btn_left_to_right {
   overflow: hidden;
 }
 
-button.btn_left_to_right:hover {
+button.btn_left_to_right:hover,
+.btn_grow_fr_inside:hover,
+.btn_skew:hover {
   color: #3498db;
+  cursor: pointer;
 }
 
 .btn_left_to_right::after {
@@ -45,7 +50,9 @@ button.btn_left_to_right:hover {
   z-index: -1;
 }
 
-.btn_left_to_right::after {
+.btn_left_to_right::after,
+.btn_grow_fr_inside::after,
+.btn_skew::after {
   transition: all 0.5s ease-in-out;
 }
 
@@ -54,4 +61,37 @@ button.btn_left_to_right:hover {
   left: 0;
   bottom: 0;
   right: 0;
+}
+
+.btn_grow_fr_inside::after {
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  transform: scale(0, 0);
+  background: #ecf0f1;
+  position: absolute;
+  z-index: -1;
+}
+
+.btn_skew::after {
+  content: "";
+  display: "table";
+  top: 0;
+  left: -30%;
+  right: -30%;
+  bottom: 0;
+  background: #ecf0f1;
+  position: absolute;
+  z-index: -1;
+  transform: scale(0, 1) skewX(45deg);
+}
+
+.btn_grow_fr_inside:hover::after {
+  transform: scale(1, 1);
+}
+
+.btn_skew:hover::after {
+  transform: scale(1, 1) skewX(45deg);
 }
